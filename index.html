@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DayZ Survival Guide für Janoschs DayZ Server</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Allgemeine Stile für den dunklen Hintergrund und die Schrift */
+        body {
+            font-family: 'Roboto Mono', monospace; /* Monospace-Schrift für Konsolen-Look */
+            background-color: #1a1a1a; /* Sehr dunkler Hintergrund */
+            color: #e0e0e0; /* Helle, leicht verwaschene Schriftfarbe */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            scroll-behavior: smooth; /* Sanftes Scrollen zu Ankern */
+        }
+
+        /* Header-Bereich */
+        header {
+            background-color: #0d0d0d; /* Noch dunklerer Header */
+            color: #4CAF50; /* Grüner Akzent für DayZ-Gefühl */
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 2px solid #222;
+            position: relative;
+            overflow: hidden; /* Für den Pseudo-Hintergrundeffekt */
+        }
+
+        header::before { /* Pseudo-Element für einen "Scratched" Effekt */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x200/101010/4CAF50?text=DayZ+Header+Image') no-repeat center center/cover; /* Platzhalter-Bild */
+            opacity: 0.2; /* Leicht transparent */
+            z-index: 0;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif; /* Futuristische Schrift für den Titel */
+            font-size: 3.5em;
+            text-shadow: 0 0 10px #4CAF50, 0 0 20px rgba(76,175,80,0.5); /* Leuchtender Effekt */
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigationsleiste */
+        nav {
+            background-color: #222;
+            padding: 10px 0;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #90CAF9; /* Hellerer Blauton für Links */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #4CAF50; /* Grüner Hover-Effekt */
+            text-shadow: 0 0 5px #4CAF50;
+        }
+
+        /* Hauptinhaltsbereich */
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #2a2a2a; /* Etwas hellerer Hintergrund für den Inhalt */
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            border-radius: 8px;
+        }
+
+        /* Sektionen */
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #333; /* Hintergrund für die Sektionen */
+            border-left: 5px solid #4CAF50; /* Grüner Rand */
+            border-radius: 5px;
+        }
+
+        .section h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #4CAF50;
+            border-bottom: 2px dashed #4CAF50;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Unterkategorien */
+        .subsection {
+            margin-top: 30px;
+            padding-left: 20px;
+            border-left: 3px solid #666;
+        }
+
+        .subsection h3 {
+            color: #90CAF9;
+            margin-bottom: 15px;
+        }
+
+        /* Listen und Absätze */
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0d0d0d;
+            color: #666;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            border-top: 1px solid #222;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+		
+		/* Unvisited link color */
+a:link {
+  color: #0070E0; /* A shade of blue */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Visited link color */
+a:visited {
+  color: #800080; /* A shade of purple */
+}
+
+/* Hover link color */
+a:hover {
+  color: #FF0000; /* Red */
+}
+
+/* Active link color */
+a:active {
+  color: #00FF00; /* Green */
+}
+    </style>
+	
+
+</head>
+<body>
+	<a id="top"></a>
+    <header>
+        <h1>DAYZ: DIE Z-ÜBERLEBENSANLEITUNG</h1>
+        <p>Willkommen auf Janoschs DayZ Server</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#survival-basics">Grundlagen des Überlebens</a></li>
+            <li><a href="#loot-exploration">Loot & Erkundung</a></li>
+            <li><a href="#about">Über DayZ</a></li>
+            <li><a href="#contact">Fahrzeuge</a></li>
+			<li><a href="#recipes">Rezepte</a></li>
+			<li><a href="https://hub.sp-tarkov.com/doc/entry/83-resources-gift-codes/">SPTarkov Geschenke</a><li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="survival-basics" class="section">
+            <h2>Grundlagen des Überlebens</h2>
+            <p>In DayZ ist das Überleben deine oberste Priorität. Hunger, Durst, Krankheit und die Untoten sind deine ständigen Begleiter. Hier lernst du die wichtigsten Aspekte, um nicht den Kürzeren zu ziehen.</p>
+
+            <div class="subsection">
+                <h3>Nahrung & Wasser</h3>
+                <p>Nahrung und Wasser sind essenziell. Suche nach Brunnen, Farmen oder Supermärkten. Vergewissere dich, dass deine Nahrung sicher ist, bevor du sie konsumierst!</p>
+                <ul>
+                    <li>**Nahrung:** Konserven, Früchte, Fleisch (muss gekocht werden).</li>
+                    <li>**Wasser:** Brunnen (sicher), Flaschen (können aufgefüllt werden), Tabletten zur Reinigung.</li>
+                    <li>**Vermeide:** Rohes Fleisch, ungewaschene Hände, verunreinigtes Wasser.</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>Medizinische Versorgung</h3>
+                <p>Verletzungen und Krankheiten sind in DayZ an der Tagesordnung. Eine gute medizinische Ausrüstung kann den Unterschied zwischen Leben und Tod bedeuten.</p>
+                <ul>
+                    <li>**Bandagen:** Gegen Blutungen.</li>
+                    <li>**Antibiotika:** Gegen Infektionen.</li>
+                    <li>**Schmerzmittel:** Gegen Schmerzen und Erschütterung.</li>
+                    <li>**Desinfektionsmittel:** Zum Säubern von Wunden und Ausrüstung.</li>
+                </ul>
+            </div>
+        </section>
+
+        ---
+
+        <section id="loot-exploration" class="section">
+            <h2>Loot & Erkundung</h2>
+            <p>Chernarus ist riesig und voller potenzieller Gefahren, aber auch voller wertvoller Ausrüstung. Eine effiziente Loot-Strategie und Kenntnisse über die Karte sind entscheidend.</p>
+
+            <div class="subsection">
+                <h3>Ausrüstung finden</h3>
+                <p>Die Art des Loots hängt stark vom Standort ab. Militärbasen bieten Waffen, während Städte Kleidung und Nahrung bereithalten.</p>
+                <ul>
+                    <li>**Militärstandorte:** Waffen, Munition, Militärkleidung.</li>
+                    <li>**Städte & Dörfer:** Kleidung, Nahrung, einfache Werkzeuge.</li>
+                    <li>**Krankenhäuser:** Medizinische Versorgung.</li>
+                    <li>**Industriegebiete:** Baumaterialien, Werkzeuge.</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>Die Karte verstehen</h3>
+                <p>Sich in Chernarus zurechtzufinden, ist eine Kunst. Nutze die Karte oder ein Kompass, um deine Position zu bestimmen und wichtige Orte zu finden.</p>
+                <ul>
+                    <li>**Landmarken:** Berge, Flüsse, markante Gebäude.</li>
+                    <li>**Straßenschilder:** Können Hinweise auf den aktuellen Ort geben.</li>
+                    <li>**Online-Karten:** Sehr hilfreich für detaillierte Informationen.</li>
+                </ul>
+            </div>
+        </section>
+
+        ---
+
+        <section id="about" class="section">
+            <h2>Über DayZ</h2>
+            <p>DayZ ist ein Open-World-Survival-Spiel, das von Bohemia Interactive entwickelt wurde. Es wurde ursprünglich als Mod für ARMA 2 im Jahr 2012 veröffentlicht und später zu einem eigenständigen Spiel.</p>
+            <p>Das Spiel versetzt dich in das fiktive post-sowjetische Land Chernarus, wo du gegen Untote, aber auch gegen andere Spieler ums Überleben kämpfen musst. Es gibt keine Checkpoints oder Speichermöglichkeiten; wenn du stirbst, verlierst du alles und beginnst von Neuem.</p>
+        </section>
+
+        ---
+
+        <section id="contact" class="section">
+            <h2>Fahrzeuge</h2>
+            <p>Wenn ihr im Spiel Enter drückt, könnt ihr mit !promo <name> ein auto eurer Wahl spawnen, passt aber auf, es landet um euch herum.</p>
+            <p>Fahrzeuge die ihr nicht mehr wollt, fahrt ihr bitte zum Green Mountain und stellt sie draußen ab.</p>
+			<p>Eine Liste der Fahrzeuge findet ihr dort: </p>
+			<a href="https://docs.google.com/spreadsheets/d/133VzG0ibW7y6A3wl9Xm_LdF1JLLyxdo6eBYWK7J3oxA/edit?usp=sharing">Fahrzeugliste</a>
+			 <a href="#top">Nach oben</a>
+			
+        </section>
+		
+		<section id="recipes" class="section">
+            <h2>Rezepte</h2>
+            <p><strong>Materials:</strong></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Christmas Lights + any sharp tool =&gt; Metal Wire</span></p>
+<p><span style="font-weight: 400;">Cable Reel + any sharp tool =&gt; 2x Metal Wire</span></p>
+<p><span style="font-weight: 400;">Metal Wire + Metal Wire =&gt; Barbed Wire</span></p>
+<p><span style="font-weight: 400;">any metal car part + Hacksaw OR Pipe Wrench =&gt; 1x Sheet Metal</span></p>
+<p><span style="font-weight: 400;">Pot OR Frying Pan + Hammer OR Hatchet OR Sledgehammer OR Meat Tenderizer =&gt; 1x Sheet Metal</span></p>
+<p><span style="font-weight: 400;">Oil Barrel + Hacksaw OR Pipe Wrench =&gt; 4x Sheet Metal</span></p>
+<p><span style="font-weight: 400;">Metal Wire OR Barbed Wire + Pliers =&gt; 20x Nails | 2x Fishing Hook</span></p>
+<p><span style="font-weight: 400;">1x Sheet Metal + Hacksaw OR Hatchet =&gt; 15x Nails</span></p>
+<p><span style="font-weight: 400;">6x Rags + any sharp tool =&gt; 4x Netting</span></p>
+<p><span style="font-weight: 400;">Rope + Rope =&gt; 8x Netting</span></p>
+<p><span style="font-weight: 400;">Campfire Tripod + Hacksaw =&gt; Pipe</span></p>
+<p>&nbsp;</p>
+<p><strong>Tools:</strong></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Small Stone + Small Stone =&gt; Sharpening Stone</span></p>
+<p><span style="font-weight: 400;">6x Rags + Fishing Hook OR Bone Fishing Hook =&gt; Sewing Kit</span></p>
+<p><span style="font-weight: 400;">Pelt + Fishing Hook OR Bone Fishing Hook =&gt; Leather Sewing Kit</span></p>
+<p><span style="font-weight: 400;">4x Tanned Leather + Fishing Hook OR Bone Fishing Hook =&gt; 2x Leather Sewing Kit</span></p>
+<p><span style="font-weight: 400;">Tire Repair Kit + any sharp tool =&gt; Duct Tape</span></p>
+<p><span style="font-weight: 400;">Power Generator + Pliers OR Wrench =&gt; Electrical Repair Kit</span></p>
+<p><span style="font-weight: 400;">Splitting Axe OR Firefighter Axe + Hand Saw OR Hacksaw =&gt; Hatchet</span></p>
+<p><span style="font-weight: 400;">Shovel + Hand Saw OR Hacksaw =&gt; Field Shovel</span></p>
+<p><span style="font-weight: 400;">Large Stone + Firewood OR Baseball Bat OR Pitchfork OR Broom =&gt; Hammer | Sledgehammer</span></p>
+<p><span style="font-weight: 400;">Crowbar OR Tire Iron + Firewood OR Baseball Bat OR Pitchfork OR Broom =&gt; Pickaxe</span></p>
+<p><span style="font-weight: 400;">Sickle + Baseball Bat OR Pitchfork OR Broom =&gt; Farming Hoe</span></p>
+<p><span style="font-weight: 400;">Pipe + Electrical Repair Kit =&gt; Blowtorch</span></p>
+<p>&nbsp;</p>
+<p><strong>Medicals</strong><span style="font-weight: 400;">:</span></p>
+<p><span style="font-weight: 400;">6x Rags + Alcoholic Tincture OR Iodine Tincture OR Disinfectant Spray =&gt; Bandage</span></p>
+<p><span style="font-weight: 400;">12x Charcoal Tablets + Disinfectant Spray =&gt; 12x Chlorine Tablets</span></p>
+<p><span style="font-weight: 400;">Morphine Auto-Injector + 50x Multivitamin Pills =&gt; PO-X Antidote</span></p>
+<p>&nbsp;</p>
+<p><strong>Containers</strong><span style="font-weight: 400;">:</span></p>
+<p><span style="font-weight: 400;">1x Sheet Metal + Hammer OR Hatchet OR Sledgehammer OR Meat Tenderizer =&gt; Cooking Pot | Frying Pan</span></p>
+<p><span style="font-weight: 400;">4x Sheet Metal + Metal Wire =&gt; Oil Barrel (you can choose a color)</span></p>
+<p><span style="font-weight: 400;">10x Wooden Planks + 40x Nails =&gt; Sea Chest</span></p>
+<p><span style="font-weight: 400;">Hockey Helmet OR Motorbike Helmet + Epoxy Putty =&gt; Protective Case</span></p>
+<p><span style="font-weight: 400;">2x Sheet Metal + Pliers OR Pipe Wrench =&gt; Ammo Box | Jerrycan</span></p>
+<p>&nbsp;</p>
+<p><strong>Other items</strong><span style="font-weight: 400;">:</span></p>
+<p><span style="font-weight: 400;">6x Rags + Plastic Bottle (must be empty) =&gt; Canteen</span></p>
+<p><span style="font-weight: 400;">6x Rags + Leather Sewing Kit =&gt; Sheath (for knife) | Holster (for pistol)</span></p>
+<p><span style="font-weight: 400;">6x Rags + Sewing Kit =&gt; Belt | NVG Headstrap</span></p>
+<p><span style="font-weight: 400;">Belt + Leather Sewing Kit =&gt; Tactical Belt</span></p>
+<p><span style="font-weight: 400;">Flashlight + Electrical Repair Kit =&gt; Universal Flashlight | Pistol Flashlight | Head Torch</span></p>
+<p><span style="font-weight: 400;">Metal Wire + Electrical Repair Kit =&gt; 3-Dial Combination Lock</span></p>
+<p><span style="font-weight: 400;">3-Dial Combination Lock + Screwdriver =&gt; 4-Dial Combination Lock</span></p>
+<p><span style="font-weight: 400;">Car Battery + Pliers OR Pipe Wrench =&gt; 9V Battery</span></p>
+<p><span style="font-weight: 400;">Truck Battery + Pliers OR Pipe Wrench =&gt; 2x 9V Battery</span></p>
+<p><span style="font-weight: 400;">Car Battery + Car Battery =&gt; Truck Battery</span></p>
+<p><span style="font-weight: 400;">Metal Wire + Wrench =&gt; Spark Plug</span></p>
+<p><span style="font-weight: 400;">Spark Plug + Pipe =&gt; Glow Plug</span></p>
+<p><span style="font-weight: 400;">Rangefinder + Screwdriver =&gt; Mini Sights</span></p>
+<p><span style="font-weight: 400;">Hunting Scope + Pliers = ATOG 4x32 Scope</span></p>
+<p><span style="font-weight: 400;">Tactical Goggles + Electrical Repair Kit =&gt; Night Vision Goggles</span></p>
+<p><span style="font-weight: 400;">Pipe OR any Suppressor + Hacksaw =&gt; Pistol Suppressor | Standardized Suppressor | Normalized Suppressor</span></p>
+<p><span style="font-weight: 400;">Handheld Transceiver + Electrical Repair Kit =&gt; GPS Receiver | Remote Detonation Unit</span></p>
+<p><span style="font-weight: 400;">4x Netting + Rope =&gt; Camo Net</span></p>
+<p><span style="font-weight: 400;">2x Sheet Metal + Hacksaw =&gt; Bear Trap</span></p>
+<p>&nbsp;</p>
+<p><strong>Repairs</strong><span style="font-weight: 400;">:</span></p>
+<p><span style="font-weight: 400;">Can Opener with Sharpening Stone</span></p>
+<p><span style="font-weight: 400;">Pliers with Sharpening Stone</span></p>
+<p><span style="font-weight: 400;">Pipe Wrench with Sharpening Stone</span></p>
+<p><span style="font-weight: 400;">Shovel with Sharpening Stone</span></p>
+<p><span style="font-weight: 400;">Field Shovel with Sharpening Stone</span></p>
+<p><span style="font-weight: 400;">Hammer with Epoxy Putty OR Duct Tape</span></p>
+<p><span style="font-weight: 400;">Sledgehammer with Epoxy Putty OR Duct Tape</span></p>
+<p><span style="font-weight: 400;">Plastic Bottle with Duct Tape</span></p>
+<p><span style="font-weight: 400;">Canteen with Duct Tape</span></p>
+<p><span style="font-weight: 400;">Gas Mask Filter with Epoxy Putty OR Duct Tape</span></p>
+<p><span style="font-weight: 400;">Car Radiator with Epoxy Putty</span></p>
+			
+             <a href="#top">Nach oben</a>
+        </section>
+		
+    </div>
+
+    <footer>
+        <p>&copy; 2025 DayZ Survival Guide. Alle Rechte vorbehalten. Dies ist eine Fanseite.</p>
+    </footer>
+
+</body>
+</html>
